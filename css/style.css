@@ -1,0 +1,69 @@
+body{
+    background-color: black;
+}
+
+.box{
+    width: 550px;
+    height: 450px;
+    padding: 5px;
+    background-color: #555;
+    margin-left: 25%;
+    margin-top: 5%;
+    border: 7px solid red;
+    border-radius: 10px;
+    box-shadow: 3px 5px 5px #333;
+}
+#input1{
+    border-radius: 5px;
+    margin-left: 100px;
+}
+#input2{
+    border-radius: 5px;
+    margin-left: 100px;
+}
+#input3{
+    border-radius: 5px;
+    margin-left: 100px;
+}
+#User-error{
+    color: red;
+    animation: blink 3s infinite;
+}
+#pass-error{
+    color: red;
+    animation:blink 3s infinite;
+}
+h1{
+    margin-top: 55px;
+    margin-left: 200px;
+    color: red;
+    text-shadow:1px  4px 4px #777;
+}
+p{
+    margin-left: 50px;
+    font-size: 18px;
+    color: black;
+    font: 500;
+}
+li{
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+a{
+    margin-left: 400px;
+    font-size: 24px;
+}
+/* #output{
+    animation: blink 3s infinite;
+} */
+@keyframes blink{
+    0%{
+        color: red;
+    }
+    50%{
+        color: black;
+    }
+    100%{
+        color: red;
+    }
+}
