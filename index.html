@@ -11,19 +11,16 @@
 <body>
     <header>
         <h1>Create an account in order to access the dark side</h1>
-        <p id="User-error"></p>
-        <p id="pass-error"></p>
-        <!-- <a href="about.html" id="output">Permission granted: Click me to continue</a> -->
     </header>
     <main>
         <div class="box">
             <p>Create user Name:</p>
             <input type="text" name="User" id="input1" placeholder="User">
             <p>Create Password:</p>
-            <input type="password" name="password" id="input2" placeholder="Password" >
+            <input type="password" name="password" id="input2" onkeyup="passed()" placeholder="Password" >
             <p>Confirm Password:</p>
             <input type="password" name="confirm-pass" id="input3">
-            <button onclick="runAll()">Submit</button>
+            <button onclick="runAll()" >Create Account</button>
             <ul>
                 <li id="limit">Password must have at least 8 characters but no more than 20</li>
                 <li id="SC">Must contain at least one special charcter(!, @, #, $, %, &).</li>
@@ -32,6 +29,16 @@
                 <li id="number">Must contain at least one number.</li>
                 <li id="space"> Can't contain spaces.</li>
             </ul>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                        <p id="User-error"></p>
+                        <p id="pass-error"></p>
+                        <p id="match-error"></p>
+                        <a href="about.html" id="output"></a>
+                </div>
+            </div>
         </div>
     </main>
     <footer>

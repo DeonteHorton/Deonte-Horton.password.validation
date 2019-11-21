@@ -9,7 +9,7 @@ body{
     background-color: #555;
     margin-left: 25%;
     margin-top: 5%;
-    border: 7px solid red;
+    border: 7px solid green;
     border-radius: 10px;
     box-shadow: 3px 5px 5px #333;
 }
@@ -29,6 +29,9 @@ body{
     color: red;
     animation: blink 3s infinite;
 }
+#output{
+    color: green;
+}
 #pass-error{
     color: red;
     animation:blink 3s infinite;
@@ -46,12 +49,13 @@ p{
     font: 500;
 }
 li{
-    font-size: 18px;
+    font-size: 17px;
     color: rgb(0, 0, 0);
 }
 a{
-    margin-left: 400px;
+    margin-left: 350px;
     font-size: 24px;
+    animation: flash 3s infinite;
 }
 /* #output{
     animation: blink 3s infinite;
@@ -66,4 +70,18 @@ a{
     100%{
         color: red;
     }
+}
+@keyframes flash{
+    0%{
+        color: rgb(0, 110, 0);
+    }
+    50%{
+        color: rgb(4, 197, 4);
+    }
+    100%{
+        color: rgb(0, 110, 0);
+    }
+}
+.about{
+    background-image: url(../media/hack.gif);
 }

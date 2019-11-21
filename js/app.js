@@ -23,44 +23,69 @@ Password must have at least 8 characters but no more than 20; Must contain at le
             if all function are true,// once all requirements are met 
                 access granted,display other html
 */
-function runAll() {
-    createUser();
-    createPass();
-    checkLength();
-    checkSimilarity();
-    checkSC();
-    checkUpper();
-    checkLower();
-    checkNumber();
-    checkSpace();
 
-return true
+
+
+function runAll() {
+    var output = document.getElementById("output");
+    let link = "Access Granted: Click me to Continue";
+    let failed = "Check instructions please"
+    if (passed() == true) {
+        output.innerHTML = link;
+        // make a link visible?
+    }
+    return false
 }
 
+
+
+function passed() {
+   return  createUser()
+    &&  createPass()
+    && checkLength()
+    && checkSimilarity()
+    && checkSC()
+    && checkUpper()
+    && checkLower()
+    && checkNumber()
+    && checkSpace();
+}
+
+var pwd = document.getElementById("input2");
+pwd.addEventListener("keyup", function () {
+    createUser()
+    createPass()
+    checkLength()
+    checkSimilarity()
+    checkSC()
+    checkUpper()
+    checkLower()
+    checkNumber()
+    checkSpace();
+})
+
 function createUser() {
-    let user = document.getElementById("input1").value;
+    var user = document.getElementById("input1").value;
     let error = document.getElementById("User-error");
     let denied = "Must Create a User Name";
-    let paseds = " "
+    let passed = " "
     if (user == "") {
         error.innerText = denied;
     } else{
         error.innerText = passed;
-        return true
+        return true;
     }
 }
 
-function createPass(params) {
+function createPass() {
     let password = document.getElementById("input2").value;
-    let confirmPassword = document.getElementById("input3").value;
     let error = document.getElementById("pass-error");
-    let denied = "Must create a Password, Please be sure to confirm the password you've created";
-    let passed = " ";
-    if (password  == "" || confirmPassword == "") {
+    let denied = "Must create password"
+    if (password  == "") {
         error.innerText = denied;
     } else {
-        error.innerText = passed;
-        return true
+        error.style.display = "none"
+        return true;
     }
 }
 
@@ -69,23 +94,25 @@ function checkLength() {
     let password = document.getElementById("input2").value;
     let limit = document.getElementById("limit");
     
-     if (password.length < 8 || password.length > 20 ){
-        console.log("Must be atleast 8 characters and no more than 20 characters"); 
+     if (password.length < 8 || password.length > 20 ){ 
         limit.style.color = "red";// password does not conatin at least 8 character or contains more than 20 characters
      }else{
          console.log("Pass3"); 
          limit.style.color = "green";
-         return true  
+         return true;  
      }
 }
 
 function checkSimilarity() {
     let password = document.getElementById("input2").value;
     let confirmPassword = document.getElementById("input3").value;
+    let similarity = document.getElementById("match-error");
+    let notFound = "password must match";
      if (password !== confirmPassword){
-        console.log("Password must match");// passwords does not match
+        similarity.innerText = notFound;
+       
     }else{
-        console.log("Pass4");
+        similarity.style.display = "none"
         return true
     }
 }
@@ -103,7 +130,7 @@ function checkSC() {
    if (password.indexOf(SpecialC[length])!=-1) {
         console.log("pass");
         sCharacter.style.color = "green";
-        return true    
+        return true;    
     } else {
         sCharacter.style.color = "red"; // must include at least 1 special character
 
@@ -126,7 +153,7 @@ function checkUpper() {
    if (password.indexOf(letter[length])!=-1) {
         console.log("pass");
         upperCase.style.color = "green"
-        return true    
+        return true;    
     } else {
         upperCase.style.color = "red" // must include at least 1 upper case letter
     }
@@ -148,7 +175,7 @@ function checkLower() {
    if (password.indexOf(lower[length])!=-1) {
         console.log("pass");
         lowerCase.style.color = "green"
-        return true    
+        return true;    
     } else {
         lowerCase.style.color = "red"// must include at leat 1 lower case letter
 
@@ -170,7 +197,7 @@ function checkNumber() {
    if (password.indexOf(numberS[length])!=-1) {
         console.log("pass");
         number.style.color = "green"
-        return true    
+        return true;    
     } else {
         number.style.color = "red"// must include at elast 1 number
 
@@ -188,8 +215,7 @@ function checkSpace() {
         space.style.color = "red"  
     } else {
         space.style.color = "green"
-        return true
+        return true;
     }
   
-
 }
